@@ -1,6 +1,116 @@
 ---
-title: "New file"
-description: "Description of your new file."
+title: "Quickstart"
+description: "Get started with Heysheet — whether you're a developer or prefer a no-code experience"
 ---
 
-# Quick
+
+This guide will help you quickly set up a form with Heysheet — whether you’re a developer integrating forms in code, or a no-code user using our drag-and-drop editor.
+
+---
+
+## For Developers
+
+Heysheet provides an API-first workflow that makes it easy to push form submissions into Google Sheets.
+
+### 1. Sign In
+
+Go to [heysheet.app](https://heysheet.app) and sign in with your Google account or email.
+
+<img style={{borderRadius: '0.5rem'}} src="/images/sign-in.png"/>
+
+### 2. Connect Google Account
+
+After login, click the **"Connect Account"** button and grant access to your Google Sheets. This enables Heysheet to create and update your spreadsheets.
+
+<img style={{borderRadius: '0.5rem'}} src="/images/google-auth-connect.png"/>
+
+### 3. Create a New Form
+
+Click **“Create Form”**, then:
+
+- Enter a form title
+- Choose to start with a template, from scratch, or use an existing spreadsheet
+- Click **Save**
+
+<img style={{borderRadius: '0.5rem'}} src="/images/form-create-options.png"/>
+
+### 4. Access the Form Detail Page
+
+After creating the form, you’ll be redirected to the **form detail page**. From here you can:
+
+- Copy the **Submission endpoint**
+<img style={{borderRadius: '0.5rem'}} src="/images/submission-api-endpoint.png"/>
+- Copy ready-made **code snippets** (HTML, React, etc.)
+
+<img style={{borderRadius: '0.5rem'}} src="/images/embed-code.png"/>
+
+### 5. Submit to the API
+
+Send a `POST` request to the form endpoint with your data:
+
+```javascript
+POST https://api.heysheet.app/submit/your-form-id
+Content-Type: application/json
+
+{
+"name": "John Doe",
+"email": "john@example.com",
+"feedback": "Great product!"
+}
+```
+
+
+---
+### 6. You’re Done 🎉
+
+All submissions will be recorded in your connected Google Sheet instantly.
+
+---
+
+## For No-Code Users
+
+If you prefer not to write code, Heysheet offers a full visual form builder.
+
+### 1. Create a Form
+
+Follow the same steps above to create a form.
+
+### 2. Open Form Builder Editor
+
+Click on link **Form Builder Editor** or **Brush Icon** on the form card in the dashboard from the form detail page.
+
+<img style={{borderRadius: '0.5rem'}} src="/images/form-card.png"/>
+
+### 3. Build Your Form Visually
+
+- Start from a template or from scratch
+- Drag and drop components onto the canvas
+- Add fields like Short Text, Email, File Upload, Dropdowns, etc.
+
+<img style={{borderRadius: '0.5rem'}} src="/images/form-editor-dnd.png"/>
+
+### 4. Customize Appearance
+
+- Choose themes and colors
+- Preview the form using the eye icon
+- Click **Save** to store your configuration
+
+<img style={{borderRadius: '0.5rem'}} src="/images/form-theme-settings.png"/>
+
+### 5. Share the Form
+
+- Click **"Open Preview in New Tab"** and copy the link  
+or  
+- Use the **Public Form URL** from the detail page
+
+<img style={{borderRadius: '0.5rem'}} src="/images/open-preview.png"/>
+
+You can now share your form anywhere — email, website, or social media.
+
+---
+
+## What’s Next?
+
+- [Syncing responses to Google Sheets](../features/google-sheet-sync)
+- [Setting up file uploads and branding](../features/branding)
+- [Understanding plan limits](../account/limits)

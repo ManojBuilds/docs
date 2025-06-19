@@ -17,8 +17,7 @@
             "group": "Getting Started",
             "pages": [
               "index",
-              "getting-started/quickstart",
-              "getting-started/creating-forms"
+              "getting-started/quickstart"
             ]
           },
           {
@@ -27,14 +26,13 @@
               "features/form-builder",
               "features/google-sheet-sync",
               "features/file-uploads",
-              "features/branding",
               "features/analytics"
             ]
           },
           {
             "group": "Account & Plans",
             "pages": [
-              "accounts/plans",
+              "account/plans",
               "account/limits",
               "account/billing"
             ]
@@ -42,32 +40,14 @@
           {
             "group": "Help & FAQ",
             "pages": [
-              "help/troubleshooting",
               "help/faq"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://google.com",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Dashboard",
-          "href": "https://google.com",
-          "icon": "layout-dashboard"
-        }
-      ]
-    }
+    ]
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+  
   "navbar": {
     "links": [
       {

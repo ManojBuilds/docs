@@ -1,5 +1,66 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "File Uploads"
+description: "Allow users to upload files in your forms"
 ---
 
+Let users submit images, documents, or any file formats through your forms.
+
+---
+
+## Enable File Uploads
+
+1. Go to form detail in which you want to enable file uploads
+2. Enable the file upload by clicking on toggle
+3. Check all the file types you want to allow 
+4. Configure the max number of files
+5. Click on save
+
+<img style={{borderRadius: '0.5rem'}} src="/images/file-upload-settings.png"/>
+
+Now there are two ways you can accept files by no code form builder or via code. 
+
+by Code: 
+
+Send the file as form data with key as you want to store like "resume". It will store the link of the file as resume column.
+```javascript
+<form action="http://localhost:3001/api/submit/4fdf2d74-fb5d-4d33-b4f6-7669a1c586e3" method="POST">
+  <input type="text" name="name" placeholder="Your name" required />
+  <input type="email" name="email" placeholder="Your email" required />
+  <textarea name="message" placeholder="Your message" required></textarea>
+  <input name="resume" required></input>
+  <button type="submit">Send</button>
+</form>
+```
+
+or via form builder
+
+<img style={{borderRadius: '0.5rem'}} src="/images/file-upload-field.png"/>
+
+1. From form component search for file upload
+2. Drag and drop the file upload component into canvas
+3. Click on the file upload component to edit the settings
+4. **Name** Will be the key of the file that will be stored in the spreadsheet if the name is "url" it will store the file url in the "url" column.
+5. **Max File Size** is the max size of the file that can be uploaded
+6. Toggle **Required** to make the field required
+---
+
+##  Storage Limits
+
+| Plan    | Max File Size | Total Files |
+|---------|---------------|-------------|
+| Free    | Not available | -           |
+| Starter | 50 MB         | Unlimited   |
+| Pro     | 100 MB        | Unlimited   |
+
+---
+
+## ️ Privacy & Security
+
+- Files are securely stored and only accessible through the sheet
+- No public file directory or listing
+
+---
+
+## Related
+
+- [Plans & Limits](../account/limits.md)
