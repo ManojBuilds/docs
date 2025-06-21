@@ -47,6 +47,10 @@
       }
     ]
   },
+  "logo": {
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png"
+  },
   
   "navbar": {
     "links": [
