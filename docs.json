@@ -30,6 +30,13 @@
             ]
           },
           {
+            "group": "Integrations",
+            "pages": [
+              "integrations/google-sheets",
+              "integrations/notion"
+            ]
+          },
+          {
             "group": "Account & Plans",
             "pages": [
               "account/plans",
