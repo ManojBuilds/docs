@@ -1,0 +1,162 @@
+---
+title: Receive form submission in your Notion Database
+date: 2025-07-17
+thumbnail: https://ik.imagekit.io/q3ksr5fk3/notion-thumbnail.png?updatedAt=1752807245172
+---
+
+
+Let’s be honest — sometimes all you want is a simple HTML form that sends data to your Notion database.
+
+No backend.
+No server code.
+Just a clean form → Notion.
+
+That’s exactly why I built **[HeySheet](https://heysheet.in)** — a dead-simple tool to collect HTML form submissions directly into Notion (or Google Sheets), without writing a single line of backend code.
+
+Let me show you how to do it in 5 minutes flat.
+
+---
+
+## Why You Don't Need a Backend for Notion Forms
+
+Traditionally, pushing form data to Notion meant:
+
+* Creating a backend API with Node.js or Python
+* Authenticating with Notion's API
+* Handling form submission logic
+* Hosting and maintaining all of it
+
+Yeah... no thanks.
+
+With **HeySheet**, you skip all that. Just sign in, link your Notion database, and get a ready-to-use form endpoint. Done.
+
+---
+
+## ⚡ Let’s Set It Up in 5 Simple Steps
+
+This guide will show you how to submit HTML form data into **Notion** without any backend. Just a form and HeySheet.
+
+---
+
+### ✅ Step 1: Create a Notion Database
+
+Head over to [Notion](https://notion.so) and create a new database.
+
+You might set up something like this:
+
+| Name | Email          |
+| ---- | -------------- |
+| Text | Email Property |
+
+Make sure the property names are exactly what you want to collect from the form.
+
+
+![Screenshot of Notion database with Name and Email columns](https://ik.imagekit.io/q3ksr5fk3/notion-db.png?updatedAt=1752807235558)
+
+---
+
+### ✅ Step 2: Create a Form on HeySheet
+
+1. Go to [HeySheet.in](https://heysheet.in)
+2. Sign in with Google
+3. Click **“Create New Form”**
+4. Choose **Notion** as your destination
+5. Connect your Notion account and select the database you just made
+
+That's it — your form is now ready to accept submissions.
+
+![Screenshot of selecting Notion database in HeySheet](https://ik.imagekit.io/q3ksr5fk3/selecting-notion-db.png?updatedAt=1752807241770)
+
+
+---
+
+### ✅ Step 3: Copy Your Form Endpoint
+
+After creating the form, you’ll get a unique endpoint like:
+
+```
+https://app.heysheet.in/api/s/xyz
+```
+
+This is where your form will send data.
+
+
+![Screenshot of HeySheet form endpoint](https://ik.imagekit.io/q3ksr5fk3/form-endpoint.png?updatedAt=1752807235895)
+---
+
+---CTA---
+
+### ✅ Step 4: Build the HTML Form
+
+In your static site or project, use this:
+
+```html
+<form action="https://app.heysheet.in/api/s/xyz" method="POST">
+  <input type="text" name="Name" placeholder="Your name" required />
+  <input type="email" name="Email" placeholder="Your email" required />
+  <button type="submit">Send</button>
+</form>
+```
+
+✅ Make sure the `name` fields (`Name`, `Email`) **match** the property names in your Notion database.
+
+![Screenshot Screenshot of the HTML form code and a basic form on a live page](https://ik.imagekit.io/q3ksr5fk3/html-code-and-live-form.png?updatedAt=1752807236271)
+
+---
+
+---
+
+### ✅ Step 5: Submit and See the Magic
+
+Go ahead and fill the form.
+
+A new row should appear in your Notion database — automatically.
+
+![Screenshot of a new row appearing in Notion Database after submission](/images/notion-db-picker.png)
+
+---
+
+## Bonus: Spam Protection (Optional)
+
+HeySheet already filters out common spam bots. But you can go further:
+
+* Add a **honeypot field** (invisible to humans, but bots might fill it)
+* Use **Google reCAPTCHA** (support coming soon)
+
+---
+
+## Why HeySheet + Notion = ❤️
+
+* ✅ **Zero backend required** — No need to touch Node, Express, or APIs
+* ✅ **Perfect for static sites** — Works with Next.js, Astro, Hugo, and plain HTML
+* ✅ **Native Notion support** — Send data directly into your favorite workspace
+* ✅ **Fast, secure, and free to start** — Generous free tier, no hidden setup
+* ✅ **Built for indie hackers and devs** — Minimal UI, fast workflow, no noise
+
+---
+
+## Use Cases for Notion Forms
+
+You can use HeySheet + Notion to collect:
+
+* Newsletter signups
+* Contact form submissions
+* Waitlist entries
+* Beta tester interest
+* Job applications
+* Feedback & suggestions
+
+Basically, if you’re collecting structured data — this setup will make your life easier.
+
+---
+
+## Final Thoughts
+
+That’s it — your HTML form now talks to Notion ✨
+No backend, no server, no API keys.
+
+If you’re building a landing page, portfolio, or anything static and want to save user input to Notion, give [HeySheet](https://heysheet.in) a try.
+
+It’s free to start and takes less than 2 minutes to set up.
+
+No fluff — just fast, functional forms.

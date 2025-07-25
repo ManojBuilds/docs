@@ -1,116 +1,98 @@
 ---
-title: "Quickstart"
-description: "Get started with Heysheet — whether you're a developer or prefer a no-code experience"
+title: 'Quickstart'
+description: 'Start collecting form submissions with Heysheet in under 5 minutes'
 ---
 
+## Get started with Heysheet
 
-This guide will help you quickly set up a form with Heysheet — whether you’re a developer integrating forms in code, or a no-code user using our drag-and-drop editor.
+Heysheet lets developers send form submissions directly to Google Sheets using a simple API — no backend required.
+
+This quickstart will walk you through:
+
+1. Connecting your Google Sheet  
+2. Sending a form submission  
+3. Viewing data in your Sheet
 
 ---
 
-## For Developers
+## 1. Connect your Google Sheet
 
-Heysheet provides an API-first workflow that makes it easy to push form submissions into Google Sheets.
+1. Visit the [Heysheet Dashboard](https://app.heysheet.in)  
+2. Sign in with your Google account and authorize access  
+3. Choose a spreadsheet you want to connect  
+4. Map your sheet's column headers to field keys like `name`, `email`, `message`
 
-### 1. Sign In
+> ✅ Heysheet only requests permission for the specific sheets you select. Your data is never stored on our servers.
 
-Go to [heysheet.in](https://heysheet.in) and sign in with your Google account or email.
+---
 
-<img style={{borderRadius: '0.5rem'}} src="/images/sign-in.png"/>
+## 2. Send your first submission
 
-### 2. Connect Google Account
+Once you’ve connected your sheet, you’ll get a secure API endpoint to send data.
 
-After login, click the **"Connect Account"** button and grant access to your Google Sheets. This enables Heysheet to create and update your spreadsheets.
+### Example using `html form`:
 
-<img style={{borderRadius: '0.5rem'}} src="/images/google-auth-connect.png"/>
+```html
+<form action="REPLACE_WITH_YOUR_SUBMISSION_ENDPOINT" method="POST" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Your name" required />
+  <input type="email" name="email" placeholder="Your email" required />
+  <textarea name="message" placeholder="Your message" required></textarea>
+  <button type="submit">Send</button>
+</form>
 
-### 3. Create a New Form
-
-Click **“Create Form”**, then:
-
-- Enter a form title
-- Choose to start with a template, from scratch, or use an existing spreadsheet
-- Click **Save**
-
-<img style={{borderRadius: '0.5rem'}} src="/images/form-create-options.png"/>
-
-### 4. Access the Form Detail Page
-
-After creating the form, you’ll be redirected to the **form detail page**. From here you can:
-
-- Copy the **Submission endpoint**
-<img style={{borderRadius: '0.5rem'}} src="/images/submission-api-endpoint.png"/>
-- Copy ready-made **code snippets** (HTML, React, etc.)
-
-<img style={{borderRadius: '0.5rem'}} src="/images/embed-code.png"/>
-
-### 5. Submit to the API
-
-Send a `POST` request to the form endpoint with your data:
-
-```javascript
-POST https://api.heysheet.in/submit/your-form-id
-Content-Type: application/json
-
-{
-"name": "John Doe",
-"email": "john@example.com",
-"feedback": "Great product!"
-}
 ```
 
+You can also use `curl`, `axios`, or any HTTP client.
 
----
-### 6. You’re Done 🎉
-
-All submissions will be recorded in your connected Google Sheet instantly.
-
----
-
-## For No-Code Users
-
-If you prefer not to write code, Heysheet offers a full visual form builder.
-
-### 1. Create a Form
-
-Follow the same steps above to create a form.
-
-### 2. Open Form Builder Editor
-
-Click on link **Form Builder Editor** or **Brush Icon** on the form card in the dashboard from the form detail page.
-
-<img style={{borderRadius: '0.5rem'}} src="/images/form-card.png"/>
-
-### 3. Build Your Form Visually
-
-- Start from a template or from scratch
-- Drag and drop components onto the canvas
-- Add fields like Short Text, Email, File Upload, Dropdowns, etc.
-
-<img style={{borderRadius: '0.5rem'}} src="/images/form-editor-dnd.png"/>
-
-### 4. Customize Appearance
-
-- Choose themes and colors
-- Preview the form using the eye icon
-- Click **Save** to store your configuration
-
-<img style={{borderRadius: '0.5rem'}} src="/images/form-theme-settings.png"/>
-
-### 5. Share the Form
-
-- Click **"Open Preview in New Tab"** and copy the link  
-or  
-- Use the **Public Form URL** from the detail page
-
-<img style={{borderRadius: '0.5rem'}} src="/images/open-preview.png"/>
-
-You can now share your form anywhere — email, website, or social media.
+{/* TODO: ADD THIS FEATURE */}
+{/* > 🛡️ Your endpoint is protected from spam by default. Enable optional domain whitelisting, rate limits, or CAPTCHA in your dashboard. */}
 
 ---
 
-## What’s Next?
+## 3. View your responses
 
-- [Syncing responses to Google Sheets](../features/google-sheet-sync)
-- [Setting up file uploads and branding](../features/branding)
-- [Understanding plan limits](../account/limits)
+As soon as a user submits the form, their data will appear in your linked Google Sheet — no syncing or refresh required.
+
+> 📌 Each field is matched with the correct column automatically.
+
+---
+
+## What’s next?
+
+Start using more powerful features and integrations:
+
+<CardGroup>
+
+  <Card
+    title="Upload Files"
+    icon="upload"
+    href="/features/file-upload"
+  >
+    Accept file uploads and link them in your Sheet.
+  </Card>
+
+  <Card
+    title="Get Alerts on Submissions"
+    icon="bell"
+    href="/features/alerts"
+  >
+    Get Slack or email notifications on every submission.
+  </Card>
+
+  <Card
+    title="Use with React or HTML"
+    icon="brackets"
+    href="/guides/react-integration"
+  >
+    Easily integrate with any frontend stack.
+  </Card>
+
+  {/* <Card
+    title="Prevent Spam"
+    icon="bug"
+    href="/guides/security"
+  >
+    Use CAPTCHA and domain restrictions to stop spam.
+  </Card> */}
+
+</CardGroup>

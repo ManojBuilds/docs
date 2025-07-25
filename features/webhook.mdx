@@ -1,0 +1,59 @@
+---
+title: "Using Webhooks"
+description: "Learn how to use webhooks in Heysheet to forward form submissions to your own server"
+---
+
+Webhooks let you forward every new form submission to your own server or third-party service in real-time.
+
+This is useful for:
+
+- Triggering automations (e.g. send emails, Slack messages)
+- Updating databases or CRMs
+- Custom processing or integrations
+
+
+---
+
+<video autoPlay playsInline loop controls style={{ borderRadius: '0.5rem', width: '100%', marginTop: '1rem' }}>
+<source src="https://ik.imagekit.io/q3ksr5fk3/webhook.mp4?updatedAt=1753334208522" type="video/mp4" />
+Your browser does not support the video tag.
+</video>
+
+## Enable Webhooks
+
+1. Go to the [Heysheet Dashboard](https://app.heysheet.in/dashboard)
+2. Select your form
+3. Scroll down and find **Webhook Integration** section and **Enable Webhook**
+4. Enter your server endpoint URL (e.g. `https://yourdomain.com/api/webhook`)
+5. Enter your webhook secret if any (Optional)
+6. Click **Save Webhook Settings**
+
+> 🛡️ We support `POST` requests over HTTPS. Make sure your endpoint is secure and authenticated.
+
+
+<img style={{borderRadius: '0.5rem'}} src="https://ik.imagekit.io/q3ksr5fk3/Screenshot%20from%202025-07-19%2017-37-13.png?updatedAt=1752927336196" alt="Webhook settings in Heysheet"/>
+
+---
+
+## Payload Format
+
+When a user submits a form, Heysheet sends a `POST` request to your webhook URL with this JSON body:
+
+```json
+{
+  "formId": "form_abc123",
+  "submittedAt": "2025-07-19T12:30:00Z",
+  "data": {
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "message": "Hello from Heysheet!"
+  }
+}
+```
+
+You can use this data to trigger custom backend logic on your server.
+
+--- 
+
+
+

@@ -1,13 +1,30 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "willow",
-  "name": "Heysheet Docs",
+  "theme": "aspen",
+  "name": "Heysheet Documentation",
   "colors": {
     "primary": "#0F9D58",
     "light": "#34D399",
     "dark": "#0C7A43"
   },
   "favicon": "/favicon.ico",
+  "seo": {
+    "metatags": {
+      "keywords": "Heysheet, Google Sheets, Notion, forms, API, webhooks, file uploads, documentation, serverless forms",
+      "author": "Manoj Kumar",
+      "robots": "index, follow",
+      "og:title": "Heysheet Documentation | Submit any form to Google Sheet",
+      "og:description": "The official documentation for Heysheet. Learn how to connect your forms to Google Sheets and Notion, manage submissions, and use advanced features like webhooks and file uploads.",
+      "og:image": "https://ik.imagekit.io/q3ksr5fk3/opengraph-image.png?updatedAt=1752807905040",
+      "og:url": "https://docs.heysheet.in",
+      "og:site_name": "Heysheet Documentation",
+      "twitter:card": "summary_large_image",
+      "twitter:site": "@ManojBuilds",
+      "twitter:title": "Heysheet Documentation | Submit any form to Google Sheet",
+      "twitter:description": "The official documentation for Heysheet. Learn how to connect your forms to Google Sheets and Notion, manage submissions, and use advanced features like webhooks and file uploads.",
+      "twitter:image": "https://ik.imagekit.io/q3ksr5fk3/opengraph-image.png?updatedAt=1752807905040"
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -23,25 +40,24 @@
           {
             "group": "Core Features",
             "pages": [
-              "features/form-builder",
               "features/google-sheet-sync",
+              "features/notion",
               "features/file-uploads",
-              "features/analytics"
+              "features/analytics",
+              "features/webhook"
             ]
           },
           {
-            "group": "Integrations",
+            "group": "Notification",
             "pages": [
-              "integrations/google-sheets",
-              "integrations/notion"
+              "notification/email",
+              "notification/slack"
             ]
           },
           {
             "group": "Account & Plans",
             "pages": [
-              "account/plans",
-              "account/limits",
-              "account/billing"
+              "account/plans"
             ]
           },
           {
@@ -58,7 +74,6 @@
     "dark": "/logo/dark.png",
     "light": "/logo/light.png"
   },
-  
   "navbar": {
     "links": [
       {
