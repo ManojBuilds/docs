@@ -9,7 +9,7 @@
   },
   "favicon": "/favicon.ico",
   "seo": {
-    "sitemap": true,
+    "indexing": "all",
     "metatags": {
       "keywords": "Heysheet, Google Sheets, Notion, forms, API, webhooks, file uploads, documentation, serverless forms",
       "author": "Manoj Kumar",
