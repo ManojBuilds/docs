@@ -1,0 +1,61 @@
+
+---
+title: "How to Send HTML Form Data to Google Sheets | Heysheet"
+description: "Learn how to easily send HTML form submissions directly to Google Sheets without any backend coding. A simple, free, and effective form backend solution."
+---
+
+## HTML Form to Google Sheets
+
+Connecting your HTML form to Google Sheets is a common requirement for capturing leads, feedback, or any other user-submitted data from your website. With Heysheet, you can achieve this in just a few minutes without writing any backend code. This guide will walk you through the process of sending form data from a standard HTML form to a Google Sheet.
+
+### Prerequisites
+
+Before you start, make sure you have the following:
+
+- A Heysheet account (you can sign up for free).
+- A Google account to create a Google Sheet.
+- A basic HTML form on your website.
+
+### Step 1: Create a Form in Heysheet
+
+1.  Log in to your Heysheet account and go to the dashboard.
+2.  Click on the "Create Form" button.
+3.  Give your form a name (e.g., "Contact Form").
+4.  Select "Google Sheets" as the destination.
+5.  Connect your Google account and select the Google Sheet you want to use.
+6.  Heysheet will generate a unique form endpoint URL for you. Copy this URL.
+
+### Step 2: Update Your HTML Form
+
+Now, you need to update your HTML form to send submissions to the Heysheet endpoint.
+
+```html
+<form action="YOUR_HEYSHEET_ENDPOINT" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" required></textarea>
+
+  <button type="submit">Submit</button>
+</form>
+```
+
+Replace `YOUR_HEYSHEET_ENDPOINT` with the URL you copied from your Heysheet dashboard.
+
+### Step 3: Test Your Form
+
+That's it! Your form is now connected to Google Sheets. Open the page with your form and submit a test entry. You should see the data appear in your Google Sheet instantly.
+
+### Why Use Heysheet for Your HTML Form?
+
+- **No Backend Required:** Heysheet acts as the form backend, so you don't need to write any server-side code.
+- **Easy to Set Up:** The process is simple and takes only a few minutes.
+- **Free Tier:** Heysheet offers a generous free plan for personal projects.
+- **Secure:** We handle your form submissions securely and offer spam protection.
+- **Developer-Friendly:** Heysheet is a great form backend for static sites and Jamstack applications.
+
+This guide provides a simple way to handle form submissions on your static website, making it a great alternative to services like SheetMonkey and Formspree.

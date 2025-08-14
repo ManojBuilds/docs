@@ -1,43 +1,41 @@
 ---
-title: "Using Webhooks"
-description: "Learn how to use webhooks in Heysheet to forward form submissions to your own server"
+title: "Form Submission Webhook: A Developer's Guide"
+description: "Learn how to use Heysheet's form submission webhook to send form data to your own server or third-party services. The perfect REST API for form data."
 ---
 
-Webhooks let you forward every new form submission to your own server or third-party service in real-time.
+## Send Form Data to Any Service with Webhooks
 
-This is useful for:
+Heysheet's **form submission webhook** feature allows you to receive real-time notifications of new form submissions. This enables you to **handle form submissions with an API**, giving you the flexibility to integrate with any service you want.
 
-- Triggering automations (e.g. send emails, Slack messages)
-- Updating databases or CRMs
-- Custom processing or integrations
+### Why Use Webhooks?
 
+Webhooks are a powerful tool for developers who need to:
+-   Trigger custom workflows and automations.
+-   Integrate with a CRM or other third-party service.
+-   Store form data in a custom database.
+-   Build a **Jamstack form submission backend**.
 
 ---
+
+## How to Set Up a Webhook
+
+1.  From the Heysheet dashboard, select the form you want to configure.
+2.  Navigate to the "Webhook" section.
+3.  Enable the webhook and enter your endpoint URL. This is the URL that Heysheet will send a `POST` request to when a new submission is received.
+4.  (Optional) Add a secret key to secure your webhook.
 
 <video autoPlay playsInline loop controls style={{ borderRadius: '0.5rem', width: '100%', marginTop: '1rem' }}>
 <source src="https://ik.imagekit.io/q3ksr5fk3/webhook.mp4?updatedAt=1753334208522" type="video/mp4" />
 Your browser does not support the video tag.
 </video>
 
-## Enable Webhooks
-
-1. Go to the [Heysheet Dashboard](https://app.heysheet.in/dashboard)
-2. Select your form
-3. Scroll down and find **Webhook Integration** section and **Enable Webhook**
-4. Enter your server endpoint URL (e.g. `https://yourdomain.com/api/webhook`)
-5. Enter your webhook secret if any (Optional)
-6. Click **Save Webhook Settings**
-
-> 🛡️ We support `POST` requests over HTTPS. Make sure your endpoint is secure and authenticated.
-
-
-<img style={{borderRadius: '0.5rem'}} src="https://ik.imagekit.io/q3ksr5fk3/Screenshot%20from%202025-07-19%2017-37-13.png?updatedAt=1752927336196" alt="Webhook settings in Heysheet"/>
+<img style={{borderRadius: '0.5rem', marginTop: '1rem'}} src="https://ik.imagekit.io/q3ksr5fk3/Screenshot%20from%202025-07-19%2017-37-13.png?updatedAt=1752927336196" alt="Webhook settings in Heysheet"/>
 
 ---
 
-## Payload Format
+## Webhook Payload
 
-When a user submits a form, Heysheet sends a `POST` request to your webhook URL with this JSON body:
+When a form is submitted, Heysheet will send a `POST` request to your webhook URL with a JSON payload containing the form data.
 
 ```json
 {
@@ -51,9 +49,15 @@ When a user submits a form, Heysheet sends a `POST` request to your webhook URL 
 }
 ```
 
-You can use this data to trigger custom backend logic on your server.
+This **REST API for form data** makes it easy to parse and use the submission data in your application.
 
---- 
+---
+
+## Securing Your Webhooks
+
+To ensure that your webhook requests are coming from Heysheet, you can use a secret key. When you set a secret key, Heysheet will include a `X-Heysheet-Signature` header in each webhook request. You can then verify this signature on your server to ensure the request is authentic.
+
+This makes Heysheet a secure and reliable **form submission API endpoint** for your application. 
 
 
 

@@ -1,0 +1,109 @@
+
+---
+title: "How to Send React Form Data to Google Sheets | Heysheet"
+description: "A comprehensive guide on connecting your React forms to Google Sheets using Heysheet. Handle form submissions in your React app without any backend code."
+---
+
+## React Form to Google Sheets
+
+Heysheet offers a straightforward solution for sending form data from your React application to a Google Sheet. This is perfect for single-page applications (SPAs) or any React-based project where you need a simple form backend.
+
+### Prerequisites
+
+- A Heysheet account.
+- A React project (e.g., created with Create React App).
+- A Google Sheet to collect your data.
+
+### Step 1: Your Heysheet Endpoint
+
+1.  Sign in to your Heysheet account.
+2.  Create a new form and link it to your Google Sheet.
+3.  Heysheet will provide you with a unique endpoint URL. Copy it.
+
+### Step 2: Build Your React Form Component
+
+Below is an example of a functional React component that handles form submission and sends the data to your Heysheet endpoint.
+
+```jsx
+// src/ContactForm.js
+
+import React, { useState } from 'react';
+
+function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    try {
+      const response = await fetch('YOUR_HEYSHEET_ENDPOINT', {
+        method: 'POST',
+        body: data,
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
+  if (submitted) {
+    return <p>Your message has been sent successfully!</p>;
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label htmlFor="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label htmlFor="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default ContactForm;
+```
+
+Don't forget to replace `YOUR_HEYSHEET_ENDPOINT` with your own endpoint URL.
+
+### Step 3: Integrate the Component
+
+You can now use this `ContactForm` component anywhere in your React application.
+
+```jsx
+// src/App.js
+
+import React from 'react';
+import ContactForm from './ContactForm';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Contact Us</h1>
+        <ContactForm />
+      </header>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Why Use Heysheet for Your React App?
+
+- **Effortless Integration:** Connect your forms to Google Sheets in minutes.
+- **No Server Management:** Focus on your frontend, and let Heysheet handle the backend.
+- **Ideal for SPAs:** A perfect form solution for modern JavaScript applications.
+- **Advanced Features:** Benefit from file uploads, Slack notifications, and more.
+
+Heysheet is a powerful tool for any React developer looking to add form functionality without the complexity of a traditional backend.

@@ -1,0 +1,113 @@
+
+---
+title: "Vue Form to Google Sheets | Heysheet"
+description: "Learn how to send form submissions from your Vue.js application to Google Sheets. A straightforward guide to connecting your Vue forms to a spreadsheet backend."
+---
+
+## Vue.js Form to Google Sheets
+
+Connecting your Vue.js forms to Google Sheets is easy with Heysheet. This guide will show you how to set up a Vue component to capture form data and send it to a Google Sheet without a backend.
+
+### Prerequisites
+
+- A Heysheet account.
+- A Vue.js project.
+- A Google Sheet.
+
+### Step 1: Set Up Your Heysheet Form
+
+1.  Log in to your Heysheet account.
+2.  Create a new form, selecting Google Sheets as the destination.
+3.  Connect your Google account and select your sheet.
+4.  Copy the form endpoint URL.
+
+### Step 2: Create a Vue Form Component
+
+Here is an example of a contact form component in Vue.js.
+
+```vue
+<!-- src/components/ContactForm.vue -->
+
+<template>
+  <div v-if="submitted">
+    <p>Thank you for your submission!</p>
+  </div>
+  <form v-else @submit.prevent="handleSubmit">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      submitted: false,
+    };
+  },
+  methods: {
+    async handleSubmit(event) {
+      const formData = new FormData(event.target);
+
+      try {
+        const response = await fetch('YOUR_HEYSHEET_ENDPOINT', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          this.submitted = true;
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+      }
+    },
+  },
+};
+</script>
+```
+
+Make sure to replace `YOUR_HEYSHEET_ENDPOINT` with the URL from your Heysheet dashboard.
+
+### Step 3: Add the Component to Your App
+
+Now, you can import and use the `ContactForm` component in your Vue application.
+
+```vue
+<!-- src/App.vue -->
+
+<template>
+  <div id="app">
+    <h1>Contact Us</h1>
+    <ContactForm />
+  </div>
+</template>
+
+<script>
+import ContactForm from './components/ContactForm.vue';
+
+export default {
+  name: 'App',
+  components: {
+    ContactForm,
+  },
+};
+</script>
+```
+
+### Why Heysheet is Great for Vue Developers
+
+- **Quick Setup:** Integrate forms into your Vue apps in minutes.
+- **No Backend Needed:** A perfect solution for static sites and SPAs.
+- **Cost-Effective:** Start with a free plan and scale as you grow.
+- **Reliable:** Securely handle form submissions with spam protection.
+
+Heysheet is an excellent choice for Vue developers who need a simple, reliable form backend solution.

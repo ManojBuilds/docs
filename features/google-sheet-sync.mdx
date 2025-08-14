@@ -1,152 +1,88 @@
 ---
-title: Receive form submission in your Google Sheet
-date: 2025-07-14
+title: "Google Sheets Form Integration: A Step-by-Step Guide"
+description: "Learn how to use Heysheet as a Google Sheets form integration tool to send form data directly to your spreadsheets. The perfect form backend for Google Sheets."
 thumbnail: https://ik.imagekit.io/q3ksr5fk3/google-sheet-thumbnail.png?updatedAt=1752807245239
 ---
 
+## Send Form Data to a Google Sheet
 
-Hey there — if you're like me, you've probably built a landing page or a portfolio and thought:
+Heysheet offers a powerful **Google Sheets form integration** that allows you to use a spreadsheet as a **form backend**. This guide provides a step-by-step walkthrough of how to connect your HTML form to Google Sheets and start collecting submissions instantly.
 
-> _"Okay… now how do I collect form submissions without spinning up an entire backend just for this simple form?"_
+### Why Use Google Sheets as a Form Backend?
 
-You're not alone. Setting up a backend just to capture web form data into a Google Sheet is... well, overkill. That’s exactly why I built **[HeySheet](https://heysheet.in)** — a no-fuss, serverless solution to collect HTML form submissions directly into Google Sheets (or Notion), without writing any backend code.
-
-Let me walk you through how to do it — step-by-step.
-
----
-
-## Why You Don’t Need a Backend for Forms Anymore
-
-Back in the day, we’d:
-
-- Spin up a Node.js or PHP server,
-- Set up routing, validation, and spam protection,
-- Deploy and manage hosting just to save 3 fields to a sheet.
-
-Now? You just need an endpoint. That’s it.
-
-And that’s what HeySheet gives you — a plug-and-play form endpoint that connects directly to your Google Sheet.
+Using Google Sheets to store form submissions is a simple and effective solution for many use cases. It eliminates the need for a complex database and provides a familiar interface for managing data. With Heysheet, you get a reliable **Google Sheets form API** that handles the entire process for you.
 
 ---
 
-## ⚡ Let’s Do This in 5 Simple Steps
+## How to Connect Your Form to Google Sheets
 
-Ready to see some magic? Let’s get your HTML form wired up to Google Sheets in less than 5 minutes.
+Follow these five steps to set up your **form submission to Google Sheets** integration:
 
----
+### 1. Prepare Your Google Sheet
 
-### ✅ Step 1: Create a Google Sheet
+Create a new Google Sheet and define your column headers. These headers will correspond to the `name` attributes in your HTML form fields.
 
-Open Google Sheets and make a new spreadsheet.
-
-Add column headers like:
-
-```bash
-Name | Email
+For example:
+```
+Name | Email | Message
 ```
 
 ![Screenshot of the Google Sheet with headers](https://ik.imagekit.io/q3ksr5fk3/spreadsheet-header.png?updatedAt=1752807243697)
 
----
+### 2. Create a Form in Heysheet
 
-### ✅ Step 2: Create a Form on HeySheet
-
-1. Go to [HeySheet.in](https://heysheet.in)
-2. Sign in with Google
-3. Click **“Create New Form”**
-4. Select the Google Sheet you just created
-
-That’s it — your form is now linked!
+1.  Navigate to the [Heysheet Dashboard](https://heysheet.in).
+2.  Click **"Create New Form"**.
+3.  Select the Google Sheet you just created.
 
 ![Screenshot of the Creating form and linking a Google Sheet](https://ik.imagekit.io/q3ksr5fk3/creating-form.png?updatedAt=1752807236883)
 
----
+### 3. Get Your Form Endpoint
 
-### ✅ Step 3: Copy the Endpoint
+Heysheet will generate a unique **form endpoint for Google Sheets**. Copy this URL to use in your HTML form.
 
-Once your form is created, HeySheet will show you an endpoint like:
+![Screenshot showing the form endpoint on Heysheet dashboard](https://ik.imagekit.io/q3ksr5fk3/form-endpoint.png?updatedAt=1752807235895)
 
-```
-https://app.heysheet.in/api/s/xyz
-```
+### 4. Update Your HTML Form
 
-Copy that — we’ll use it in your HTML.
-
-![Screenshot showing the form endpoint on HeySheet dashboard](https://ik.imagekit.io/q3ksr5fk3/form-endpoint.png?updatedAt=1752807235895)
-
----
-
-### ✅ Step 4: Build a Simple HTML Form
-
-Now go to your website code and add this:
+In your website's code, set the `action` attribute of your form to the Heysheet endpoint URL and the `method` to `POST`.
 
 ```html
-<form action="https://app.heysheet.in/api/s/xyz" method="POST">
-  <input type="text" name="Name" placeholder="Your name" required />
-  <input type="email" name="Email" placeholder="Your email" required />
-  <button type="submit">Send</button>
+<form action="YOUR_HEYSHEET_ENDPOINT" method="POST">
+  <input type="text" name="Name" placeholder="Your Name" required />
+  <input type="email" name="Email" placeholder="Your Email" required />
+  <textarea name="Message" placeholder="Your Message" required></textarea>
+  <button type="submit">Submit</button>
 </form>
 ```
 
-⚠️ **Make sure** the `name` values (`Name`, `Email` ) **match** the column headers in your sheet.
+**Important:** The `name` attributes in your form must match the column headers in your Google Sheet exactly.
 
 ![Screenshot Screenshot of the HTML form code and a basic form on a live page](https://ik.imagekit.io/q3ksr5fk3/html-code-and-live-form.png?updatedAt=1752807236271)
 
----
+### 5. Test Your Integration
 
-### ✅ Step 5: Test It!
-
-Go ahead and submit the form.
-
-You should see the submission pop up in your Google Sheet — instantly.
+Submit a test entry through your form. The data will appear as a new row in your Google Sheet in real-time.
 
 ![Screenshot of a new row appearing in Google Sheet after submission](/images/google-sheet-output.png)
 
 ---
 
+## Key Features of Heysheet's Google Sheets Integration
 
-## Bonus: Add Spam Protection (Optional)
-
-HeySheet already blocks common spam bots, but if you want extra protection:
-
-- Add a **honeypot** field (a hidden input field that bots will fill in, but humans won’t)
-- Or use **Google reCAPTCHA** (we’ll add built-in support soon )
-
----
-
-## Why HeySheet Is So Handy
-
-Here’s why I personally use it on my own side projects:
-
-- ✅ **No backend or database:** Eliminate backend development and directly send form data to Google Sheets without a server or database.
-- ✅ **Works perfectly on static sites:** Ideal for static site form submissions (Next.js, Astro, plain HTML, and more).
-- ✅ **Native Google Sheets & Notion integration:** Seamlessly connect your forms to the tools you already use.
-- ✅ **Secure, fast, and free to get started:** Enjoy secure and lightning-fast form data collection, with a generous free tier to get started.
-- ✅ **Looks like magic, but it’s real:** Experience the simplicity of no-code form solutions.
+-   **No Backend Required:** Heysheet serves as your **HTML form backend**, so you don't need to manage a server.
+-   **Works with Any Frontend:** Use it with plain HTML, React, Vue, or any other frontend framework.
+-   **Secure and Reliable:** All submissions are sent over a secure connection, and we offer spam protection features.
+-   **Free to Start:** Our **free Google Sheets form API** is perfect for personal projects and small businesses.
 
 ---
 
-## Bonus Use Cases
+## Common Use Cases
 
-You can use HeySheet to collect:
+-   Contact forms
+-   Lead generation forms
+-   Surveys and feedback forms
+-   Event registrations
+-   Job applications
 
-- Contact form messages
-- Newsletter signups
-- Beta tester interest
-- Job applications
-- Feedback forms
-- Waitlist entries
-
-Basically, anywhere you need form data stored — HeySheet's got your back.
-
----
-
-## Wrapping Up
-
-That’s it!
-
-You just connected your HTML form to Google Sheets — without a single line of backend code.
-
-If you're building a landing page, portfolio, or static site and want a fast way to collect form data, definitely give [HeySheet](https://heysheet.in) a spin.
-
-It takes 2 minutes to set up. No login walls, no bloated UI — just simple forms, powered by Sheets.
+Heysheet is a versatile **Google Sheets form integration tool** that can be adapted to fit a wide range of needs.

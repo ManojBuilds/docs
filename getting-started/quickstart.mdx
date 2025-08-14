@@ -1,98 +1,81 @@
 ---
-title: 'Quickstart'
-description: 'Start collecting form submissions with Heysheet in under 5 minutes'
+title: "HTML Form to Google Sheets: Quickstart Guide"
+description: "A 5-minute quickstart guide on how to send an HTML form to Google Sheets using Heysheet. The easiest way to handle form submissions without a backend."
 ---
 
-## Get started with Heysheet
+## Send Your First Form Submission to Google Sheets
 
-Heysheet lets developers send form submissions directly to Google Sheets using a simple API — no backend required.
+Heysheet provides a **form endpoint for Google Sheets**, allowing you to send form data directly to a spreadsheet with no backend code. This guide will show you how to set up your **HTML form to Google Sheets** integration in just a few minutes.
 
-This quickstart will walk you through:
-
-1. Connecting your Google Sheet  
-2. Sending a form submission  
-3. Viewing data in your Sheet
-
----
-
-## 1. Connect your Google Sheet
-
-1. Visit the [Heysheet Dashboard](https://app.heysheet.in)  
-2. Sign in with your Google account and authorize access  
-3. Choose a spreadsheet you want to connect  
-4. Map your sheet's column headers to field keys like `name`, `email`, `message`
-
-> ✅ Heysheet only requests permission for the specific sheets you select. Your data is never stored on our servers.
+This quickstart covers:
+1.  Connecting Heysheet to your Google Sheet.
+2.  Updating your HTML form to send data.
+3.  Viewing your form submissions in real-time.
 
 ---
 
-## 2. Send your first submission
+## 1. Connect Your Google Sheet
 
-Once you’ve connected your sheet, you’ll get a secure API endpoint to send data.
+First, you need to connect your Heysheet account to a Google Sheet.
 
-### Example using `html form`:
+1.  Go to the [Heysheet Dashboard](https://app.heysheet.in).
+2.  Sign in and authorize your Google account.
+3.  Choose the Google Sheet you want to use as your **form backend**.
+4.  Map your form fields (e.g., `name`, `email`) to the columns in your sheet.
+
+> ✅ Your data is secure. Heysheet doesn't store your submissions and only accesses the sheets you select.
+
+---
+
+## 2. Send a Test Submission
+
+After connecting your sheet, Heysheet will give you a unique **form submission API endpoint**. You'll use this URL in your HTML form's `action` attribute.
+
+### Example: HTML Form to Google Sheets
 
 ```html
-<form action="REPLACE_WITH_YOUR_SUBMISSION_ENDPOINT" method="POST" enctype="multipart/form-data">
-  <input type="text" name="name" placeholder="Your name" required />
-  <input type="email" name="email" placeholder="Your email" required />
-  <textarea name="message" placeholder="Your message" required></textarea>
-  <button type="submit">Send</button>
+<form action="YOUR_HEYSHEET_ENDPOINT" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Submit</button>
 </form>
-
 ```
 
-You can also use `curl`, `axios`, or any HTTP client.
-
-{/* TODO: ADD THIS FEATURE */}
-{/* > 🛡️ Your endpoint is protected from spam by default. Enable optional domain whitelisting, rate limits, or CAPTCHA in your dashboard. */}
+Replace `YOUR_HEYSHEET_ENDPOINT` with the URL from your Heysheet dashboard.
 
 ---
 
-## 3. View your responses
+## 3. See Your Data in Google Sheets
 
-As soon as a user submits the form, their data will appear in your linked Google Sheet — no syncing or refresh required.
-
-> 📌 Each field is matched with the correct column automatically.
+Submit your form, and the data will instantly appear in your connected Google Sheet. There's no need to refresh the page; the data syncs in real-time. This makes it a perfect **no-code form to spreadsheet** solution.
 
 ---
 
-## What’s next?
+## What’s Next?
 
-Start using more powerful features and integrations:
+Now that you have your form connected, explore more of Heysheet's features:
 
 <CardGroup>
-
   <Card
-    title="Upload Files"
+    title="File Uploads"
     icon="upload"
-    href="/features/file-upload"
+    href="/features/file-uploads"
   >
-    Accept file uploads and link them in your Sheet.
+    Learn how to accept file uploads in your forms.
   </Card>
-
   <Card
-    title="Get Alerts on Submissions"
+    title="Notifications"
     icon="bell"
-    href="/features/alerts"
+    href="/notification/email"
   >
-    Get Slack or email notifications on every submission.
+    Get email or Slack notifications for new submissions.
   </Card>
-
   <Card
-    title="Use with React or HTML"
+    title="Platform Guides"
     icon="brackets"
-    href="/guides/react-integration"
+    href="/guides/html"
   >
-    Easily integrate with any frontend stack.
+    Find guides for React, Vue, Svelte, and more.
   </Card>
-
-  {/* <Card
-    title="Prevent Spam"
-    icon="bug"
-    href="/guides/security"
-  >
-    Use CAPTCHA and domain restrictions to stop spam.
-  </Card> */}
-
 </CardGroup>

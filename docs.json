@@ -49,6 +49,16 @@
             ]
           },
           {
+            "group": "Platform Guides",
+            "pages": [
+              "guides/html",
+              "guides/react",
+              "guides/nextjs",
+              "guides/vue",
+              "guides/svelte"
+            ]
+          },
+          {
             "group": "Notification",
             "pages": [
               "notification/email",

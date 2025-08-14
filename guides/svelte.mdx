@@ -1,0 +1,88 @@
+
+---
+title: "Svelte Form to Google Sheets | Heysheet"
+description: "A guide on how to send form submissions from a Svelte application to Google Sheets using Heysheet. The easiest way to handle forms in your Svelte project."
+---
+
+## Svelte Form to Google Sheets
+
+Heysheet makes it incredibly simple to handle form submissions in your Svelte application. You can send data from your Svelte forms to a Google Sheet without any backend setup. This guide will walk you through the process.
+
+### Prerequisites
+
+- A Heysheet account.
+- A Svelte project.
+- A Google Sheet for your form data.
+
+### Step 1: Get Your Heysheet Endpoint
+
+1.  Log in to Heysheet.
+2.  Create a form and connect it to your desired Google Sheet.
+3.  Copy the unique form endpoint URL provided by Heysheet.
+
+### Step 2: Create a Svelte Form Component
+
+Here’s how you can create a reusable form component in Svelte that sends data to your Heysheet endpoint.
+
+```html
+<!-- src/lib/ContactForm.svelte -->
+
+<script>
+  let submitted = false;
+
+  async function handleSubmit(event) {
+    const formData = new FormData(event.target);
+    const response = await fetch('YOUR_HEYSHEET_ENDPOINT', {
+      method: 'POST',
+      body: formData
+    });
+
+    if (response.ok) {
+      submitted = true;
+    }
+  }
+</script>
+
+{#if submitted}
+  <p>Thank you for your message!</p>
+{:else}
+  <form on:submit|preventDefault={handleSubmit}>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+{/if}
+```
+
+Remember to replace `YOUR_HEYSHEET_ENDPOINT` with your actual Heysheet URL.
+
+### Step 3: Use the Component in Your Svelte App
+
+Now you can easily use this component anywhere in your Svelte application.
+
+```html
+<!-- src/routes/+page.svelte -->
+
+<script>
+  import ContactForm from './lib/ContactForm.svelte';
+</script>
+
+<h1>Contact Us</h1>
+<ContactForm />
+```
+
+### Why Choose Heysheet for Svelte?
+
+- **Simplicity:** No complex backend logic to worry about.
+- **Fast:** Get your form up and running in minutes.
+- **Affordable:** A generous free plan and cost-effective premium features.
+- **Static Site Friendly:** Ideal for SvelteKit and other static site generators.
+
+Heysheet is the perfect companion for your Svelte projects, providing a reliable and easy-to-use form backend solution.

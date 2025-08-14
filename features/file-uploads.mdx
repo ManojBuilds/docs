@@ -1,43 +1,64 @@
 ---
-title: "File Uploads"
-description: "Allow users to upload files in your forms"
+title: "Google Sheets File Upload Form: A Complete Guide"
+description: "Learn how to create a Google Sheets file upload form with Heysheet. Allow users to upload files directly to your Google Drive and link them in your spreadsheet."
 ---
 
-Let users submit images, documents, or any file formats through your forms.
+## Create a File Upload Form for Google Sheets
+
+Heysheet's **file upload form** feature allows you to accept files from users and have them automatically uploaded to your Google Drive. A link to the uploaded file is then added to your Google Sheet, making it easy to manage all your form submissions in one place.
+
+This is a powerful feature for anyone who needs to collect documents, images, or other files as part of their form submission process.
 
 ---
 
-## Enable File Uploads
+## How to Enable File Uploads
 
-1. Go to form detail in which you want to enable file uploads
-2. Enable the file upload by clicking on toggle
-3. Check all the file types you want to allow 
-4. Configure the max number of files
-5. Click on save
+Setting up a **Google Sheets file upload form** is simple with Heysheet.
+
+1.  Navigate to the settings of the form you want to enable file uploads for.
+2.  Toggle the "File Uploads" option to "On".
+3.  Specify the allowed file types (e.g., PDF, DOCX, JPG).
+4.  Set a limit for the maximum number of files that can be uploaded per submission.
+5.  Save your changes.
 
 <img style={{borderRadius: '0.5rem'}} src="/images/file-upload-settings.png" alt="File upload settings in Heysheet"/>
 
-Now there are two ways you can accept files by no code form builder or via code. 
+---
 
-by Code: 
+## How to Add a File Upload Field to Your Form
 
-Send the file as form data with key as you want to store like "resume". It will store the link of the file as resume column.
-```javascript
-<form action="http://localhost:3001/api/submit/4fdf2d74-fb5d-4d33-b4f6-7669a1c586e3" method="POST">
-  <input type="text" name="name" placeholder="Your name" required />
-  <input type="email" name="email" placeholder="Your email" required />
-  <textarea name="message" placeholder="Your message" required></textarea>
-  <input name="resume" required></input>
-  <button type="submit">Send</button>
+To add a file upload field to your HTML form, simply add an `<input type="file">` element. Make sure the `name` attribute of the input matches the column header in your Google Sheet where you want the file link to appear.
+
+```html
+<form action="YOUR_HEYSHEET_ENDPOINT" method="POST" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <input type="file" name="resume" required />
+  <button type="submit">Submit Application</button>
 </form>
 ```
 
----
-
-## ️ Privacy & Security
-
-- Files are securely stored and only accessible through the sheet
-- No public file directory or listing
+**Note:** When using file uploads, you must set the `enctype` of your form to `multipart/form-data`.
 
 ---
+
+## How File Uploads Work
+
+When a user submits a form with a file, Heysheet:
+1.  Uploads the file to a secure folder in your Google Drive.
+2.  Creates a unique, shareable link for the file.
+3.  Adds the file link to the corresponding cell in your Google Sheet.
+
+This process ensures that your files are stored securely and are easily accessible from your spreadsheet.
+
+---
+
+## Use Cases for File Uploads
+
+-   **Job Applications:** Collect resumes and cover letters.
+-   **Contact Forms:** Allow users to send attachments.
+-   **Bug Reports:** Let users upload screenshots of the issue.
+-   **Event Registrations:** Collect necessary documents from attendees.
+
+With support for **unlimited form submissions** on our paid plans, you can create powerful and flexible file upload forms for any purpose. As a **privacy-friendly form backend**, we ensure your data is handled securely.
 

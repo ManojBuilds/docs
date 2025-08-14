@@ -1,0 +1,103 @@
+
+---
+title: "React Form to Google Sheets with Next.js | Heysheet"
+description: "Learn how to connect a React form in your Next.js application to Google Sheets. A simple and powerful way to handle form submissions without a backend."
+---
+
+## Next.js Form to Google Sheets
+
+If you're building a Next.js application and need to capture form submissions, Heysheet provides a seamless way to send data from your React components to a Google Sheet. This guide will show you how to set up a form in your Next.js app to send data to Google Sheets.
+
+### Prerequisites
+
+- A Heysheet account.
+- A Next.js project set up.
+- A Google Sheet to store your form submissions.
+
+### Step 1: Create a Heysheet Endpoint
+
+1.  Log in to your Heysheet account.
+2.  Create a new form and select Google Sheets as the destination.
+3.  Connect your Google account and choose your target sheet.
+4.  Copy the generated form endpoint URL.
+
+### Step 2: Create a React Form Component
+
+Here is an example of a simple contact form component in a Next.js application. This component will send the form data to your Heysheet endpoint.
+
+```jsx
+// components/ContactForm.js
+
+import { useState } from 'react';
+
+export default function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    try {
+      const response = await fetch('YOUR_HEYSHEET_ENDPOINT', {
+        method: 'POST',
+        body: data,
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
+  if (submitted) {
+    return <p>Thank you for your submission!</p>;
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label htmlFor="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label htmlFor="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+Replace `YOUR_HEYSHEET_ENDPOINT` with your Heysheet form endpoint URL.
+
+### Step 3: Add the Component to Your Page
+
+Now you can import and use the `ContactForm` component in any of your Next.js pages.
+
+```jsx
+// pages/contact.js
+
+import ContactForm from '../components/ContactForm';
+
+export default function ContactPage() {
+  return (
+    <div>
+      <h1>Contact Us</h1>
+      <ContactForm />
+    </div>
+  );
+}
+```
+
+### Benefits of Using Heysheet with Next.js
+
+- **Serverless:** No need to manage a backend for your forms.
+- **Fast Integration:** Connect your forms in minutes.
+- **Jamstack Ready:** Perfect for static and server-rendered Next.js sites.
+- **Feature-Rich:** Includes file uploads, webhooks, and analytics.
+
+This approach provides a robust and scalable solution for handling form submissions in your Next.js projects, making it a great choice for developers looking for a simple form backend.
