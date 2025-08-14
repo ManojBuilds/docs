@@ -1,6 +1,5 @@
-
 ---
-title: "How to Send HTML Form Data to Google Sheets | Heysheet"
+title: "How to Send HTML Form Data to Google Sheets"
 description: "Learn how to easily send HTML form submissions directly to Google Sheets without any backend coding. A simple, free, and effective form backend solution."
 ---
 
@@ -30,7 +29,7 @@ Before you start, make sure you have the following:
 Now, you need to update your HTML form to send submissions to the Heysheet endpoint.
 
 ```html
-<form action="YOUR_HEYSHEET_ENDPOINT" method="POST">
+<form action="YOUR_HEYSHEET_ENDPOINT" method="POST" enctype="multipart/form-data">
   <label for="name">Name:</label>
   <input type="text" id="name" name="name" required>
 

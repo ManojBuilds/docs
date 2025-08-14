@@ -66,12 +66,6 @@
             ]
           },
           {
-            "group": "Account & Plans",
-            "pages": [
-              "account/plans"
-            ]
-          },
-          {
             "group": "Help & FAQ",
             "pages": [
               "help/faq"
