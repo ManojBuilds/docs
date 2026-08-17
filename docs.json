@@ -17,7 +17,7 @@
       "og:title": "Heysheet Documentation | Submit any form to Google Sheet",
       "og:description": "The official documentation for Heysheet. Learn how to connect your forms to Google Sheets and Notion, manage submissions, and use advanced features like webhooks and file uploads.",
       "og:image": "https://ik.imagekit.io/q3ksr5fk3/opengraph-image.png?updatedAt=1752807905040",
-      "og:url": "https://docs.heysheet.in",
+      "og:url": "https://heysheet-landing-nine.vercel.app/",
       "og:site_name": "Heysheet Documentation",
       "twitter:card": "summary_large_image",
       "twitter:site": "@ManojBuilds",
@@ -89,7 +89,7 @@
     "primary": {
       "type": "button",
       "label": "Go to App",
-      "href": "https://www.heysheet.in"
+      "href": "https://heysheet-landing-nine.vercel.app/"
     }
   }
 }
